@@ -1,2 +1,2 @@
 # phptask
-this is a practice
+这是一个关于php的小练习，主要用于展示一些前端技术信息，并完成一些简单的交互
