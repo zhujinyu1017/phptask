@@ -33,7 +33,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 	$image_name = time().rand(100,999).".".$ext;
 	$tmp = $_FILES['photoimg']['tmp_name'];
 	if(move_uploaded_file($tmp, $path.$image_name)){
-		echo '<img src="http://task.com/'.$path.$image_name.'"  class="preview">';
+		echo '<img src="http://task.zjy.com/'.$path.$image_name.'"  class="preview">';
 		$sql = "UPDATE zjy_member SET avatar = '".$path.$image_name."' WHERE name = '".$_COOKIE['username']."'";
 		setcookie('avatar',$path.$image_name,0,'/');
 		$data['avatar']=$path.$image_name;

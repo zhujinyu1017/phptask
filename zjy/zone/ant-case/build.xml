@@ -1,0 +1,18 @@
+<?xml version='1.0'?>
+<project name="refund" default="build">
+	<target name="build">
+		<concat destfile="../js/common/global-basic.js" encoding="utf-8">
+			<path path="../js/common/jquery.min.js"></path>
+			<path path="../js/common/layer.js"></path>
+		</concat>
+		<concat destfile="../js/common/submit-basic.js" encoding="utf-8">
+			<path path="../js/common/jquery.min.js"></path>
+			<path path="../js/common/layer.js"></path>
+			<path path="../js/common/validation-rules.js"></path>
+		</concat>
+		<concat destfile="../js/common/submit-basic-1.js" encoding="utf-8">
+			<path path="../js/common/layer.js"></path>
+			<path path="../js/common/rule-validation.js"></path>
+		</concat>
+	</target>
+</project>

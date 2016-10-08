@@ -2,7 +2,7 @@
 <body>
 	<div class="container-full ">
 		<?php $this->load->view('admin/public/top');?>
-		<div class="row common-content">
+		<div class="common-content">
 			<?php $this->load->view('admin/public/left');?>
 			<div class="common-right">
 				<div class="content">
@@ -12,12 +12,13 @@
 							<thead>
 								<tr>
 									<th>#</th>
-									<th >分类</th>
-									<th >是否显示缩略图</th>
+									<th>分类</th>
+									<th width="80">是否显示缩略图</th>
 									<th>缩略图</th>
+									<th>首页是否显示</th>
 									<th>标题</th>
-									<th>详情</th>
-									<th >操作</th>
+									<th width="80">详情</th>
+									<th width="120">操作</th>
 								</tr>
 							</thead>
 							<tbody>      			
@@ -32,9 +33,14 @@
 											<td>否</td>
 											<td>无</td>
 										<?php endif ;?>
+										<?php if($v['isIndex']) :?>
+											<td>是</td>
+										<?php else :?>
+											<td>否</td>
+										<?php endif ;?>
 										<td><?php echo $v['title'];?></td>
 										<td>
-											<div class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal<?php echo $key;?>">查看</div>
+											<div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal<?php echo $key;?>">查看</div>
 											<div class="modal fade" id="myModal<?php echo $key;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 												<div class="modal-dialog" role="document">
 													<div class="modal-content">
@@ -42,7 +48,7 @@
 															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 															<h4 class="modal-title" id="myModalLabel"><?php echo $v['title'];?></h4>
 														</div>
-														<div class="modal-body">
+														<div class="modal-body break-word overflow-h">
 															<?php echo $v['content'];?>
 														</div>
 														

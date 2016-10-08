@@ -13,8 +13,16 @@
 							<input type="text" class="form-control" name="title" id="title" placeholder="标题">
 						</div>
 						<div class="form-group">
+							<label>标签</label>
+							<select class="tag form-control">
+								<?php foreach ($tag as $v):?>
+									<option value="<?php echo $v['id'];?>"><?php echo $v['name'];?></option>
+								<?php endforeach;?>
+							</select>
+						</div>
+						<div class="form-group">
 							<label>分类</label>
-							<select class="classify">
+							<select class="classify form-control">
 								<?php foreach ($classify as $v):?>
 									<option value="<?php echo $v['name'];?>"><?php echo $v['name'];?></option>
 								<?php endforeach;?>
@@ -29,25 +37,40 @@
 								<input type="radio" name="isthumb" id="" value="0" >隐藏
 							</label>
 						</div>
+						<div class="form-group">
+							<label>首页是否显示</label>
+							<label>
+								<input type="radio" name="isIndex" id="" value="1" checked>显示
+							</label>
+							<label>
+								<input type="radio" name="isIndex" id="" value="0" >隐藏
+							</label>
+						</div>
 						<div class="form-group addImg">
 							<label class="mr10">缩略图</label>
 							<input  type="button" class="datepicker" onclick="upImage();" value="上传图片" id="upload_ue" />
-							<input type="text" id="picture" name="thumb" />
+							<input type="text" id="picture" name="thumb" class="form-control" />
 							<!-- <textarea id="editor1"></textarea> -->
+						</div>
+						<div class="form-group">
+							<label class="mr10">描述</label>
+							<textarea name="describe" id="describe" cols="80" rows="3"></textarea>
 						</div>
 						<div class="form-group" style="width: 600px;height: 400px;">
 							<label>内容</label>
 							<textarea id="editor" width="700"  name="content"></textarea>
 						</div>
-
-						<div class="tip-error"></div>
+						<div class="form-group" style="width: 600px; text-align: left;">
+							<label>内容</label>
+							<textarea id="code" name="code" class="bg-black" >/*Code as follows*/</textarea>
+						</div>
+						<div class="tip-error font-red"></div>
 						<button type="button" value="Submit" id="Submit" class="btn btn-default col-xs-12 col-sm-12 col-md-12">提交</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="<?php echo base_url('zone/js/common/layer.js');?>"></script>
 	<script src="<?php echo base_url('zone/js/common/rule-validation.js');?>"></script>
 	<script type="text/javascript" charset="utf-8" src="<?php echo base_url('zone/js/ueditor/ueditor.config.js');?>"></script>
     <script type="text/javascript" charset="utf-8" src="<?php echo base_url('zone/js/ueditor/ueditor.all.js');?>"></script>
@@ -77,32 +100,31 @@
 		$("#Submit").click(function(){
 			var title=$("#title").val();
 			var classify=$('.classify option:selected') .val();
+			var tag=$('.tag option:selected') .val();
 			var isthumb=$("input[name='isthumb']:checked").val();
+			var isIndex=$("input[name='isIndex']:checked").val();
 			var picture=$("#picture").val();
+			var describe=$("#describe").val();
 			var nr=ue.getContent();
 			if(!check_null(title,'标题不可为空')){
 				return;
 			}else if(!check_null(nr,'内容不可为空')){
 				return;
 			}else{
-				$.ajax({ 
-					url: "<?php echo base_url('admin/basic/ajax_articleadd')?>",
-					type: "POST", 
-					dataType: "json",
-                           async:false,//表示只有ajax执行完毕了才继续往下执行
-                           data: {title:title,classify:classify,isthumb:isthumb,thumb:picture,content:nr},
-                           error: function(){  
-                           	console.log('Error loading XML document');  
-                           },        
-                           success: function(data,status) { 
-                           	if(!data.status){
-                           		$(".tip-error").html(data.message);
-                           	}else{
-                           		layer.msg(data.message);
-                           		window.location.href=data.location;
-                           	}   
-                           }
-                       });     
+				$.post("<?php echo base_url('admin/basic/ajax_articleadd')?>",{"title": title, "classify": classify,"tag": tag, "isthumb": isthumb,'isIndex':isIndex, "thumb": picture,"describe":describe,"content": nr},function (data) {
+					if (data.status) {
+						window.location.href = data.location;
+					} else {
+						$(".tip-error").html(data.message);
+					}
+				},'json');
+
+
+
+
+
+
+
 			}
 		})
 	</script>

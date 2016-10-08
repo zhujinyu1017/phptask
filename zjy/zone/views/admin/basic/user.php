@@ -13,9 +13,9 @@
 						<tr>
 							<th>#</th>
 							<th >用户名</th>
-							<th>昵称</th>
 							<th>头像</th>
-							<th >操作</th>
+							<th>注册时间</th>
+							<th>操作</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -23,12 +23,12 @@
 							<tr>
 								<td><?php echo $v['id'];?></td>
 								<td><?php echo $v['name'];?></td>
-								<td><?php echo $v['nicke'];?></td>
 								<?php if($v['avatar']) :?>
 									<td><img src="<?php echo base_url($v['avatar']);?>" alt="" width="20" height="20"></td>
 								<?php else :?>
 									<td class="tc"><img src="<?php echo base_url('zone/images/common/avatar-default1.png');?>" alt="" width="20" height="20"></td>
 								<?php endif ;?>
+								<td><?php echo $v['registertime'];?></td>
 								<td class="operation"><a href="javascript:;" class="del font-red" data-id="<?php echo $v['id'];?>"><i class="icon-trash"></i>删除</a></td>
 							</tr>
 						<?php endforeach;?>

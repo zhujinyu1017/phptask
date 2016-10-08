@@ -17,8 +17,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://task.com';
-$config['base_js_url'] = 'http://task.com/zone/js/';
+$config['base_url'] = 'http://task.zjy.com';
+$config['base_js_url'] = 'http://task.zjy.com/zone/js/';
+$config['base_css_url'] = 'http://task.zjy.com/zone/css/';
 /*
 |--------------------------------------------------------------------------
 | Index File

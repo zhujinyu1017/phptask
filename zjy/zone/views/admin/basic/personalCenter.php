@@ -35,7 +35,7 @@
             success:function(){ 
                 status.hide(); 
                 btn.show();
-//                top.location.reload();
+                top.location.reload();
             },  
             error:function(){ 
             	// layer.msg(data.message);

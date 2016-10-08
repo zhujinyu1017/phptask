@@ -1,56 +1,44 @@
-<!DOCTYPE lang="en">
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-touch-fullscreen" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="format-detection" content="address=no"/>
-    <title>页面1</title>
-    <script src="<?php echo base_url('zone/js/common/jquery-2.2.3.min.js'); ?>"></script>
-    <script src="<?php echo base_url('zone/js/front/mobile/vector.js'); ?>"></script>
-    <script src="<?php echo base_url('zone/js/common/jquery.pjax.js'); ?>"></script>
+<?php $this->load->view('mobile/public/header.php'); ?>
+<link rel="stylesheet" href="<?php echo base_url('zone/css/common/swiper.min.css'); ?>">
+<link rel="stylesheet" href="<?php echo base_url('zone/css/mobile/index.css'); ?>">
 </head>
-<body >
-<article  id="123">
-<ul>
-<!--        <li><a href="--><?php //echo base_url('mobile/basic/index') ?><!--">页面1</a></li>-->
-        <li><a href="<?php echo base_url('mobile/basic/index2') ?>">页面2</a></li>
-</ul>
-<div id="content">
-    <div>这是页面1</div>
-    <button id="btn1">按钮1</button>
-</div>
-    </article>
-
+<body class="<?php echo str_replace('/', '', $this->router->directory) . '_' . $this->router->class . '_' . $this->router->method . ' d_' . str_replace('/', '', $this->router->directory) . ' c_' . $this->router->class; ?>">
+<?php $this->load->view('mobile/public/header-back.php'); ?>
+<article class="mt44 mb60">
+	<div class="swiper-container" style="height: 160px;">
+		<div class="swiper-wrapper">
+			<?php foreach ($info as $key =>$v ): ?>
+				<div class="swiper-slide"><a href="<?php echo base_url('mobile/basic/articleDetail').'/'.$v['id']; ?>" class="aBlock" data-id="<?php echo $v['id'];?>"><img src="<?php echo base_url($v['thumb']);?>" class="w100p"/></a></div>
+			<?php endforeach; ?>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+	<div class="mt10">
+		<?php foreach ($list as $key => $v): ?>
+			<div class="mlr10 bgWhite border-r5 ">
+				<div class="p15 mb20">
+					<a href="<?php echo base_url('mobile/basic/articleDetail').'/'.$v['id']; ?>">
+						<div class="articleTitle"><?php echo $v['title'] ?></div>
+						<div class="font-12 date"><?php echo strstr($v['updateTime'], ' ', true); ?></div>
+						<div class="ptb5">
+							<img src="<?php echo $v['thumb'] ?>" class="w100p">
+						</div>
+						<div class="describe font-98">
+							<?php echo strlen($v['describe']) > 76 ? substr($v['describe'], 0, 76) . '...' : $v['describe']; ?>
+						</div>
+					</a>
+				</div>
+			</div>
+		<?php endforeach; ?>
+	</div>
+	<!--列表-->
+</article>
+<script src="<?php echo base_url('zone/js/common/swiper.min.js'); ?>"></script>
 <script>
-    $(document).pjax('#123 a', '#123', {fragment:'#123', timeout:5000});
-    $(document).on('pjax:send', function() {
-        console.log(1);
-    });
-    $(document).on('pjax:complete', function() {
-        console.log(2);
-    });
-    function preloadimages(arr){
-        var newimages=[]
-        var arr=(typeof arr!="object")? [arr] : arr  //确保参数总是数组
-        for (var i=0; i<arr.length; i++){
-            newimages[i]=new Image()
-            newimages[i].src=arr[i]
-        }
-    }
-    window.onload=function () {
-        setTimeout(function () {
-            preloadimages(['<?php echo base_url("zone/images/common/avatar-default1.png");?>','<?php echo base_url("zone/images/common/avatar.jpg");?>']);
-        },1000)
-        $("#btn1").click(function () {
-            alert(1);
-        })
-    }
+	var swiper = new Swiper('.swiper-container', {
+		pagination: '.swiper-pagination',
+		paginationClickable: true
+	});
 </script>
-</body>
-</html>
+<?php $this->load->view('mobile/public/footer.php'); ?>
+<?php $this->load->view('mobile/public/footerEnd.php'); ?>

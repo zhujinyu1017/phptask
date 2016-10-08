@@ -7,15 +7,15 @@ $config['zjy_description'] = '金可观是中国第一家黄金珠宝移动商�
 $config['zjy_version'] = '1.1';
 $config['zjy_release'] = '20151010';
 //路径
-$config['base_url']='http://task.com/';
-$config['fornt_url'] = 'http://task.com/blog/';
-$config['admin_url'] = 'http://task.com/admin/';
-$config['css_url'] = 'http://task.com/css';
-$config['js_url'] = 'http://task.com/js';
-$config['css_url_front'] = 'http://task.com/css/front/';
-$config['js_url_front'] = 'http://task.com/js/front/';
-$config['css_url_admin'] = 'http://task.com/css/admin/';
-$config['js_url_admin'] = 'http://task.com/js/admin/';
+$config['base_url']='http://ttask.zjy.com/';
+$config['fornt_url'] = 'http://task.zjy.com/blog/';
+$config['admin_url'] = 'http://task.zjy.com/admin/';
+$config['css_url'] = 'http://task.zjy.com/css';
+$config['js_url'] = 'http://task.zjy.com/js';
+$config['css_url_front'] = 'http://task.zjy.com/css/front/';
+$config['js_url_front'] = 'http://task.zjy.com/js/front/';
+$config['css_url_admin'] = 'http://task.zjy.com/css/admin/';
+$config['js_url_admin'] = 'http://task.zjy.com/js/admin/';
 //400电话
 $config['zjy_phone'] = '400-888-9149';
 

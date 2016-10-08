@@ -3,14 +3,15 @@
     <title>登录</title>
     <link rel="stylesheet" href="<?php echo base_url('zone/css/common/bootstrap.min.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('zone/css/common/font-awesome.css');?>">
-    <link rel="stylesheet" href="<?php echo base_url('zone/css/common/common.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('zone/css/common/global.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('zone/css/admin/admin.css');?>">
-    <script src="<?php echo base_url('zone/js/common/jquery-2.2.3.min.js');?>"></script>
-    <script src="<?php echo base_url('zone/js/common/bootstrap.min.js');?>"></script>
-    <script src="<?php echo base_url('zone/js/common/layer.js');?>"></script>
+    <script src="<?php echo $this->config->item('base_js_url').'common/jquery-2.2.3.min.js';?>"></script>
+    <script src="<?php echo $this->config->item('base_js_url').'common/bootstrap.min.js';?>"></script>
+    <script src="<?php echo $this->config->item('base_js_url').'common/layer.js';?>"></script>
+    <script src="<?php echo $this->config->item('base_js_url').'common/rule-validation.js';?>"></script>
     <script src="<?php echo base_url('zone/js/common/rule-validation.js');?>"></script>
     <!--[if IE 7]>
-    <link rel="stylesheet" href="<?php echo base_url('zone/css/common/font-awesome-ie7.min.css');?>">
+    <link rel="stylesheet" href="<?php echo $this->config->item('base_css_url').'common/font-awesome-ie7.min.css';?>">
     <![endif]-->
     <body class="join">
         <div class="container">

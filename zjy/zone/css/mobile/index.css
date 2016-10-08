@@ -1,0 +1,12 @@
+@charset "utf-8";
+body.mobile_basic_articleDetail{background: #fff;}
+body.mobile_basic_study{background: #fff;}
+body.mobile_basic_study .articleTitle{height: .8rem;overflow: hidden;line-height: .4rem;}
+body.mobile_basic_articleDetail .content{line-height: .6rem;max-width: 100%;word-break: break-all;}
+body.mobile_basic_articleDetail .content img{max-width: 100%;}
+body.mobile_basic_index .articleTitle{width:90%;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;line-height: .6rem;}
+body.mobile_basic_index .date{line-height: .4rem;}
+body.mobile_basic_index .describe{line-height: .6rem;}
+body.mobile_basic_question .title{width:95%;overflow:hidden;text-overflow:ellipsis;/*white-space:nowrap;*/line-height: .4rem;}
+body.mobile_basic_my .avatarBox{width: 1.44rem;height: 1.44rem;border:2px solid #fff;border-radius: 100%; margin: 1.5rem auto 0;}
+body.mobile_basic_my .avatarBox img{width: 100%;height: 100%;border-radius: 100%;}

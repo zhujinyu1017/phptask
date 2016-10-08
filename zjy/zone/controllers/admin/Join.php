@@ -40,8 +40,8 @@ class Join extends CI_Controller{
 	}
 	public function ajax_register(){
 		$this->load->helper('url');
-		$data = array('status' => FALSE, 'message' => '系统未知错误');	
-		if(empty($_POST['name']) || empty($_POST['password'])){ 
+		$data = array('status' => FALSE, 'message' => '系统未知错误');
+		if(empty($_POST['name']) || empty($_POST['password'])){
 			$data['status']=false;
 			$data['message'] = '请填写手机号和密码';
 			echo json_encode($data);
@@ -54,8 +54,9 @@ class Join extends CI_Controller{
 			$data['status']=false;
 			$data['message'] = '该用户已存在'; 
 			echo json_encode($data); 
-		}else{ 
-			$arr=array('name'=>$_POST['name'],'password'=>$_POST['password']);
+		}else{
+			$aa=date('y-m-d h:i:s',time());
+			$arr=array('name'=>$_POST['name'],'password'=>$_POST['password'],'registertime'=>$aa);
 			$this->db->insert("member",$arr);
 			$data['status']=true;
 			$data['message']='注册成功';

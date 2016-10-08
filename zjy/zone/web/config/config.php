@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://task.com/zjy';
+$config['base_url'] = 'http://task.zjy.com/zjy';
 
 /*
 |--------------------------------------------------------------------------

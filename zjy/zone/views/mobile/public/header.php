@@ -9,10 +9,7 @@
     <meta name="renderer" content="webkit"/>
     <meta name="format-detection" content="telephone=no"/>
     <meta name="format-detection" content="address=no"/>
-    <title>登录</title>
-    <link rel="stylesheet" href="<?php echo base_url('zone/css/common/bootstrap.min.css');?>">
-    <link rel="stylesheet" href="<?php echo base_url('zone/css/common/font-awesome.css');?>">
-    <script src="<?php echo base_url('zone/js/common/jquery-2.2.3.min.js');?>"></script>
-    <!--[if IE 7]>
-    <link rel="stylesheet" href="<?php echo base_url('zone/css/common/font-awesome-ie7.min.css');?>">
-    <![endif]-->
+    <title><?php echo $title; ?></title>
+    <link rel="stylesheet" href="<?php echo base_url('zone/css/common/weui.min.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('zone/css/mobile/common.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('zone/css/common/font-awesome.css'); ?>">

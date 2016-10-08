@@ -1,8 +1,8 @@
 <html>
 <head>
     <title><?php echo $title;?></title>
-    <link rel="stylesheet" type="text/css" href="http://task.com/zone/css/front/global.css">
-    <link rel="stylesheet" type="text/css" href="http://task.com/zone/css/front/index.css">
+    <link rel="stylesheet" type="text/css" href="http://task.zjy.com/zone/css/front/global.css">
+    <link rel="stylesheet" type="text/css" href="http://task.zjy.com/zone/css/front/index.css">
 </head>
 <body>
 <div class="top"></div>
